@@ -18,4 +18,8 @@ describe('App', () => {
   it('contains initial state of `techSalaries`', () => {
     expect(app.state().techSalaries).toEqual([]);
   });
+
+  it('renders a Preloader component if `techSalaries` state is empty', () => {
+    expect(app.find('Preloader').exists()).toBe(true);
+  });
 });
