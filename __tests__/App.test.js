@@ -19,7 +19,34 @@ describe('App', () => {
     expect(app.state().techSalaries).toEqual([]);
   });
 
+  it('contains initial state of `countyNames`', () => {
+    expect(app.state().countyNames).toEqual([]);
+  });
+  
+  it('contains initial state of `medianIncomes`', () => {
+    expect(app.state().medianIncomes).toEqual([]);
+  });
+
   it('renders a Preloader component if `techSalaries` state is empty', () => {
     expect(app.find('Preloader').exists()).toBe(true);
   });
+
+  describe('when `techSalaries` state is not empty', () => {
+    beforeEach(() => {
+      app.setState({
+        techSalaries: [{id: 1}]
+      });
+    });
+
+    afterEach(() => {
+      app.setState({
+        techSalaries: []
+      });
+    });
+
+    it('it renders the app', () => {
+      expect(app.find('.App').exists()).toBe(true);
+    });
+  });
+  
 });

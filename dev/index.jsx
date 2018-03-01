@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import Preloader from './components/Preloader.jsx';
+import App from './components/App.jsx';
+// import 'bootstrap/dist/css/bootstrap.css';
+// import 'bootstrap/dist/css/bootstrap-theme.css';
 
-ReactDOM.render(<Preloader />, document.querySelector('.container'));
+
+ReactDOM.render(<App />, document.querySelector('.container'));
