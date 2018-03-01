@@ -3,7 +3,7 @@ import Preloader from './Preloader.jsx';
 import * as d3 from 'd3';
 import _ from 'lodash';
 import { loadAllData } from '../utils/DataHandling';
-import CountyMap from './components/CountyMap';
+import CountyMap from './CountyMap.jsx';
 
 class App extends Component {
   constructor(props){
@@ -36,7 +36,7 @@ class App extends Component {
   render() {
     const {techSalaries, countyNames} = this.state;
 
-    console.log("data is ", loadAllData(data => data))
+    //console.log("data is ", loadAllData(data => data))
 
     const filteredSalaries = techSalaries;
 
@@ -44,12 +44,15 @@ class App extends Component {
     //https://lodash.com/docs#groupBy
     const filteredSalariesMap = _.groupBy(filteredSalaries, 'countyID');
 
+    
+
     //for each county, return array of objects 
     //with countyIDs and diff bet. tech & median income
     const countyValues = countyNames.map(county => {
       return this.countyValue(county, filteredSalariesMap);
     }).filter(d => !_.isNull(d));
 
+    
 
     let zoom = null;
 
@@ -57,8 +60,7 @@ class App extends Component {
       return(
         <div className='App container'>
           <svg width='1100' height='500'>
-            
-            
+            <CountyMap />  
           </svg>
         </div>
       ) 

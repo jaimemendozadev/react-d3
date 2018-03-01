@@ -2,6 +2,7 @@ import React from 'react';
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import App from '../dev/components/App.jsx';
+
 configure({ adapter: new Adapter() });
 
 import {shallow} from 'enzyme';
@@ -47,6 +48,9 @@ describe('App', () => {
     it('it renders the app', () => {
       expect(app.find('.App').exists()).toBe(true);
     });
+
+    it('it renders a CountyMap component', () => {
+      expect(app.find('CountyMap').exists()).toBe(true);
+    });
   });
-  
 });
