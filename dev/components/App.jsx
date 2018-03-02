@@ -33,7 +33,12 @@ class App extends Component {
 
   }
 
+  componentWillMount(){
+    loadAllData(data => this.setState(data));
+  }
+
   render() {
+    console.log("this.state ", this.state)
     const {techSalaries, countyNames} = this.state;
 
     //console.log("data is ", loadAllData(data => data))
@@ -56,11 +61,20 @@ class App extends Component {
 
     let zoom = null;
 
-    if(techSalaries.length) {
+    if(techSalaries.length > 0) {
       return(
         <div className='App container'>
           <svg width='1100' height='500'>
-            <CountyMap />  
+            <CountyMap
+              usTopoJson={this.state.usTopoJson}
+              USstateNames={this.state.USstateNames}
+              values={countyValues}
+              x={0}
+              y={0}
+              width={500}
+              height={500}
+              zoom={zoom}
+            />  
           </svg>
         </div>
       ) 
