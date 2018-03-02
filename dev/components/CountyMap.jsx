@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import * as d3 from 'd3';
 import * as topojson from 'topojson';
 import _ from 'lodash';
-import County from './County';
+import County from './County.jsx';
 
 const pathStyle = {fill: 'none', stroke: '#fff', strokeLinejoin: 'round'};
 
